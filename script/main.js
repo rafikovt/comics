@@ -6,6 +6,7 @@ let currentPageId = getCurrentPage();
 
 if (currentPageId == 1) {
     prevPageBtn.disabled = true;
+    firstPageBtn.disabled = true;
 }
 
 nextPageBtn.addEventListener('click', () => {
