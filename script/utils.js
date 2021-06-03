@@ -6,10 +6,13 @@ export const getCurrentPage = () => {
     } else {
         page = 1
     }
-    return page;    
+    return page;
 }
 
 export const setCurrentPage = (id) => {
-    console.log(id)
     window.location.search = `page=${id}`
-}
+};
+
+export const getRandomPageId = (min, max) => {
+    return Math.floor(Math.random() * (max - min) + min);
+};

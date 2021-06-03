@@ -1,20 +1,32 @@
-import {getCurrentPage, setCurrentPage} from './utils';
-import {nextPage, prevPage} from './const';
-import {getData} from './data';
+import { getCurrentPage, setCurrentPage, getRandomPageId } from './utils';
+import { nextPageBtn, prevPageBtn, randomPageBtn, firstPageBtn, lastPageBtn, MAX_PAGE } from './const';
+import { getData } from './data';
 
 let currentPageId = getCurrentPage();
 
 if (currentPageId == 1) {
-    prevPage.disabled = true;
+    prevPageBtn.disabled = true;
 }
 
-nextPage.addEventListener('click', () => {
+nextPageBtn.addEventListener('click', () => {
     setCurrentPage(+currentPageId + 1);
 })
 
-prevPage.addEventListener('click', () => {
+prevPageBtn.addEventListener('click', () => {
     setCurrentPage(currentPageId - 1)
 })
 
-getData(currentPageId);
+randomPageBtn.addEventListener('click', () => {
+    const randomId = getRandomPageId(1, MAX_PAGE);
+    setCurrentPage(randomId);
+});
 
+firstPageBtn.addEventListener('click', () => {
+    setCurrentPage(1);
+});
+
+lastPageBtn.addEventListener('click', () => {
+    setCurrentPage(MAX_PAGE);
+});
+
+getData(currentPageId);
